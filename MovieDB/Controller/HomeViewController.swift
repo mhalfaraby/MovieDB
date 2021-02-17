@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
   }
   func fetchPopular() {
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
-    let request =     AF.request("https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1").validate(statusCode: 200...500)
+    let request =     AF.request("https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=en-US&page=1&region=ID").validate(statusCode: 200...500)
     request.responseDecodable(of: MovieModel.self) { (response) in
       guard let result = response.value else { return }
       self.urlBackdropPath.append([result])
@@ -139,6 +139,8 @@ class HomeViewController: UIViewController {
     
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets.leading = 15
+    section.contentInsets.top = 15
+
     section.orthogonalScrollingBehavior = .continuous
     
     section.boundarySupplementaryItems = [
@@ -150,7 +152,7 @@ class HomeViewController: UIViewController {
   
   private func thirdLayoutSection() -> NSCollectionLayoutSection {
     
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.8))
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
     
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     item.contentInsets.bottom = 30
@@ -220,10 +222,10 @@ extension HomeViewController: UICollectionViewDataSource {
           let url = "https://image.tmdb.org/t/p/w500//\(name)"
       
       cell.configure(withImageName: url)
-    case 2:  let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-      let url = "https://image.tmdb.org/t/p/w500//\(name)"
-  
-  cell.configure(withImageName: url)
+//    case 2:  let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
+//      let url = "https://image.tmdb.org/t/p/w500//\(name)"
+//
+//  cell.configure(withImageName: url)
     default:
       let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
           let url = "https://image.tmdb.org/t/p/w500//\(name)"
@@ -242,6 +244,18 @@ extension HomeViewController: UICollectionViewDataSource {
     return header
   }
 }
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row]
+      
+//      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
+      
+      
+        print("tapped \(movie)")
+    }
+}
+
 
 
 
