@@ -12,5 +12,6 @@ struct MovieModel: Decodable {
 }
 
 struct Movies: Decodable {
-  let poster_path: String?
+  let backdrop_path: String
+  let poster_path: String
 }
