@@ -30,7 +30,7 @@ class CategoryHeaderView: UICollectionReusableView {
     }
 }
 
-class Coba: UICollectionReusableView {
+class CategoryHeaderView1: UICollectionReusableView {
     
     let label = UILabel()
     override init(frame: CGRect) {

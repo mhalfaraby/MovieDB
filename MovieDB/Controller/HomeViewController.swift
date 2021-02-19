@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   //  var movies: String?
   var urlBackdropPath = [[MovieModel]]()
+  var selectedItem: Movies?
 //
 //  var simpleDataSource: [[String]] = [
 //    ["image1", "image2"],
@@ -36,13 +37,27 @@ class HomeViewController: UIViewController {
     
     collectionView.register(AlbumItemCell.self, forCellWithReuseIdentifier: AlbumItemCell.reuseIdentifer)
     collectionView.register(CategoryHeaderView.self, forSupplementaryViewOfKind: categoryHeaderId, withReuseIdentifier: headerId)
-    collectionView.register(Coba.self, forSupplementaryViewOfKind: "tes", withReuseIdentifier: headerId)
+    collectionView.register(CategoryHeaderView1.self, forSupplementaryViewOfKind: "Header1", withReuseIdentifier: headerId)
     
     
     collectionView.collectionViewLayout = createCompositionalLayout()
 
     
   }
+ 
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController!.navigationBar.isTranslucent = false
+
+    navigationController?.navigationBar.backgroundColor = .black
+    
+  }
+  
+  
+
+  
+
   func fetchBanner() {
     
     
@@ -170,7 +185,7 @@ class HomeViewController: UIViewController {
     
     section.orthogonalScrollingBehavior = .continuous
     section.boundarySupplementaryItems = [
-      NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44)), elementKind: "tes", alignment: .top)
+      NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44)), elementKind: "Header1", alignment: .top)
     ]
     return section
   }
@@ -246,14 +261,42 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row]
-      
-//      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-      
-      
-        print("tapped \(movie)")
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row]
+    selectedItem = movie
+   //      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
+       performSegue(withIdentifier: "toDetail", sender: self)
+   
+//           print("tapped \(movie)")
+  }
+//
+//   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+//    selectedItem = urlBackdropPath[indexPath.section][0].results[indexPath.row]
+//    performSegue(withIdentifier: "toDetail", sender: self)
+//    return indexPath }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toDetail" {
+      let detailVC = segue.destination as! DetailViewController
+      detailVC.stringToimage = selectedItem!
     }
+  }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//      let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row]
+//
+////      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
+//    performSegue(withIdentifier: "toDetail", sender: self)
+//
+//        print("tapped \(movie)")
+//    }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "toDetail" {
+//      let detailVC = segue.destination as! DetailViewController
+//      detailVC.detailMovies = urlBackdropPath[indexPath.section][0].results[indexPath.row]
+//
+//    }
+//  }
 }
 
 
