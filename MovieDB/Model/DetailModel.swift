@@ -12,7 +12,8 @@ struct Detail: Decodable {
   let runtime: Int
   let genres: [Genres]
   let overview: String
-  let casts: [Casts]
+  let poster_path: String
+//  let cast: [Casts]
   
 }
 
@@ -20,6 +21,6 @@ struct Genres: Decodable {
   let name: String
 }
 
-struct Casts: Decodable {
-  let name: String
-}
+//struct Casts: Decodable {
+//  let name: String
+//}

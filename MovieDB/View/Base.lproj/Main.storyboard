@@ -287,6 +287,8 @@
                     <size key="freeformSize" width="428" height="2000"/>
                     <connections>
                         <outlet property="collectionView" destination="Bwz-W3-lhh" id="Ohw-u6-C5y"/>
+                        <outlet property="detailOverview" destination="iL2-FK-gXN" id="MK9-g4-IXX"/>
+                        <outlet property="detailTitle" destination="A3S-1l-mcT" id="NNU-j1-ajA"/>
                         <outlet property="imagePoster" destination="cpm-ua-Y9A" id="V05-U3-Gax"/>
                     </connections>
                 </viewController>

@@ -11,44 +11,54 @@ import Alamofire
 
 class DetailViewController: UIViewController {
   
+  @IBOutlet weak var detailTitle: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var imagePoster: UIImageView!
+  @IBOutlet weak var detailOverview: UITextView!
   var detailId: Int?
   var stringToimage: Movies?
+  var detail: Detail?
   
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if let name = stringToimage?.poster_path {
+  
+    
+  
+    //
+    //
+    //
+    //    }
+    //    fetchDetail()
+    print(detailId!)
+    fetchDetail()
+//    if let name = detail?.poster_path {
 //      let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
 //      let urlToImage = NSURL.init(string: url)
-//          imagePoster.af.setImage(withURL: urlToImage! as URL)
-//
-//
-//
-//    }
-    fetchDetail()
-    print(detailId!)
-//    imagePoster.af.setImage(withURL: urlToImage! as URL)
-
-    
-//    print(stringToimage?.backdrop_path)
-//    if let url = "https://image.tmdb.org/t/p/w500//\(name)" {
-//          let urlToImage = NSURL.init(string: url)
-//
-//    }
-    
-//
-//
 //      imagePoster.af.setImage(withURL: urlToImage! as URL)
-
+//    }
+    
+    //    imagePoster.af.setImage(withURL: urlToImage! as URL)
+    
+    
+    //    print(stringToimage?.backdrop_path)
+    //    if let url = "https://image.tmdb.org/t/p/w500//\(name)" {
+    //          let urlToImage = NSURL.init(string: url)
+    //
+    //    }
+    
+    //
+    //
+    //      imagePoster.af.setImage(withURL: urlToImage! as URL)
+    
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-//    self.navigationItem.setHidesBackButton(true, animated: true)
-
+    //    self.navigationItem.setHidesBackButton(true, animated: true)
+    
     self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
     self.navigationController!.navigationBar.shadowImage = UIImage()
     self.navigationController!.navigationBar.isTranslucent = true
@@ -57,24 +67,32 @@ class DetailViewController: UIViewController {
   }
   
   func fetchDetail() {
-//    https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=0bc0b44455920f6f519ea6cf9094f2c4&language=en-US
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
-    let request =     AF.request("https://api.themoviedb.org/3/movie/\(String(describing: detailId))/credits?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
+    let request =     AF.request("https://api.themoviedb.org/3/movie/\(detailId!),?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
     request.responseDecodable(of: Detail.self) { (response) in
       guard let result = response.value else { return }
-      print(result)
       
-      DispatchQueue.main.async {
-        self.collectionView.reloadData()
-      }
-    
-    
+      let name = result.poster_path
+       let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
+      let urlToImage = NSURL.init(string: url)
+      self.imagePoster.af.setImage(withURL: urlToImage! as URL)
+      
+      self.detailTitle.text = result.title
+      self.detailOverview.text = result.overview
+      
+          
+      
+      
+      
+    }
+    //
+    //
   }
   
   
   
 }
-}
+
 
 
 extension DetailViewController: UICollectionViewDataSource {
@@ -95,7 +113,7 @@ extension DetailViewController: UICollectionViewDataSource {
   
 }
 extension UIView {
- 
+  
   @IBInspectable var cornerRadius: CGFloat {
     get {
       return layer.cornerRadius
