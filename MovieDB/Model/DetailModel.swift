@@ -17,10 +17,22 @@ struct Detail: Decodable {
   
 }
 
+
 struct Genres: Decodable {
   let name: String
 }
 
-//struct Casts: Decodable {
+
+struct Cast:Decodable {
+  let cast: [Casts]
+}
+//
+//struct Casts:Decodable  {
 //  let name: String
+//  let profile_path: String
 //}
+
+struct Casts: Decodable {
+  let name: String?
+  let profile_path: String?
+}
