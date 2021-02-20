@@ -14,14 +14,14 @@
             <objects>
                 <viewController id="Heb-k8-1KZ" customClass="DetailViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GLm-bB-HSl">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1829"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chj-Bk-BP1">
-                                <rect key="frame" x="0.0" y="-100" width="428" height="855"/>
+                                <rect key="frame" x="0.0" y="-100" width="428" height="1929"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PY-Sf-wfm" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1660.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1630.3333333333333"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="cpm-ua-Y9A">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="563"/>
@@ -163,7 +163,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL2-FK-gXN">
                                                 <rect key="frame" x="8" y="563" width="412" height="801.33333333333348"/>
                                                 <color key="backgroundColor" red="0.1176470518" green="0.1294117719" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <mutableString key="text">"The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard."</mutableString>
+                                                <string key="text">"The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard."</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -183,8 +183,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="210" id="6K5-KG-yXo"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Qj-X2-9AV">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Qj-X2-9AV">
                                                     <size key="itemSize" width="198" height="202"/>
+                                                    <size key="estimatedItemSize" width="198" height="202"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -197,11 +198,11 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="198" height="202"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image4" translatesAutoresizingMaskIntoConstraints="NO" id="EUs-0C-Kzn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="173.66666666666666"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="image4" translatesAutoresizingMaskIntoConstraints="NO" id="EUs-0C-Kzn">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="90"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="90" id="4zL-rQ-Aez"/>
-                                                                        <constraint firstAttribute="height" constant="90" id="nQ1-6N-VCb"/>
+                                                                        <constraint firstAttribute="width" constant="90" id="O9W-yi-0nX"/>
+                                                                        <constraint firstAttribute="height" constant="90" id="cFR-jU-0G5"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -211,7 +212,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-kX-Sgg">
-                                                                    <rect key="frame" x="8" y="173.66666666666666" width="182" height="20.333333333333343"/>
+                                                                    <rect key="frame" x="8" y="98" width="182" height="96"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -220,10 +221,10 @@
                                                             <constraints>
                                                                 <constraint firstItem="SZp-kX-Sgg" firstAttribute="leading" secondItem="im8-gB-7cd" secondAttribute="leading" constant="8" id="6Cv-QG-o5E"/>
                                                                 <constraint firstItem="EUs-0C-Kzn" firstAttribute="top" secondItem="im8-gB-7cd" secondAttribute="top" id="M1D-EL-e8c"/>
-                                                                <constraint firstItem="SZp-kX-Sgg" firstAttribute="top" secondItem="EUs-0C-Kzn" secondAttribute="bottom" id="cpM-yb-ffe"/>
+                                                                <constraint firstItem="SZp-kX-Sgg" firstAttribute="top" secondItem="EUs-0C-Kzn" secondAttribute="bottom" constant="8" id="cpM-yb-ffe"/>
                                                                 <constraint firstAttribute="trailing" secondItem="SZp-kX-Sgg" secondAttribute="trailing" constant="8" id="dLc-xQ-cj1"/>
                                                                 <constraint firstAttribute="trailing" secondItem="EUs-0C-Kzn" secondAttribute="trailing" id="j3n-wC-nBv"/>
-                                                                <constraint firstAttribute="bottom" secondItem="EUs-0C-Kzn" secondAttribute="bottom" constant="28.333333333333343" id="kNW-Zn-6KB"/>
+                                                                <constraint firstItem="EUs-0C-Kzn" firstAttribute="centerX" secondItem="im8-gB-7cd" secondAttribute="centerX" id="mYr-Dw-6dQ"/>
                                                                 <constraint firstItem="EUs-0C-Kzn" firstAttribute="leading" secondItem="im8-gB-7cd" secondAttribute="leading" id="q87-LP-MdR"/>
                                                                 <constraint firstAttribute="bottom" secondItem="SZp-kX-Sgg" secondAttribute="bottom" constant="8" id="sfs-or-Vbd"/>
                                                             </constraints>
@@ -244,7 +245,7 @@
                                         <color key="backgroundColor" red="0.1176470518" green="0.1294117719" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="jXE-qq-4Aq" firstAttribute="top" secondItem="iL2-FK-gXN" secondAttribute="bottom" constant="15" id="2Ma-il-9Ls"/>
-                                            <constraint firstAttribute="bottom" secondItem="Bwz-W3-lhh" secondAttribute="bottom" constant="50" id="8Xo-a6-YOG"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bwz-W3-lhh" secondAttribute="bottom" constant="20" id="8Xo-a6-YOG"/>
                                             <constraint firstItem="cpm-ua-Y9A" firstAttribute="leading" secondItem="9PY-Sf-wfm" secondAttribute="leading" id="DHr-sn-KWj"/>
                                             <constraint firstItem="cpm-ua-Y9A" firstAttribute="top" secondItem="9PY-Sf-wfm" secondAttribute="top" id="K02-Ez-txy"/>
                                             <constraint firstAttribute="trailing" secondItem="v8B-qa-1VO" secondAttribute="trailing" id="Pf6-IC-7qY"/>
@@ -283,6 +284,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Ct-Oq-naW"/>
+                    <size key="freeformSize" width="428" height="2000"/>
                     <connections>
                         <outlet property="collectionView" destination="Bwz-W3-lhh" id="Ohw-u6-C5y"/>
                         <outlet property="imagePoster" destination="cpm-ua-Y9A" id="V05-U3-Gax"/>

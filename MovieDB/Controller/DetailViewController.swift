@@ -7,28 +7,29 @@
 
 import UIKit
 import AlamofireImage
+import Alamofire
 
 class DetailViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var imagePoster: UIImageView!
-  var detailMovies: Movies?
+  var detailId: Int?
   var stringToimage: Movies?
   
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if let name = stringToimage?.poster_path {
-      let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
-      let urlToImage = NSURL.init(string: url)
-          imagePoster.af.setImage(withURL: urlToImage! as URL)
-      
-     
-
-    }
-    
-    
+//    if let name = stringToimage?.poster_path {
+//      let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
+//      let urlToImage = NSURL.init(string: url)
+//          imagePoster.af.setImage(withURL: urlToImage! as URL)
+//
+//
+//
+//    }
+    fetchDetail()
+    print(detailId!)
 //    imagePoster.af.setImage(withURL: urlToImage! as URL)
 
     
@@ -55,8 +56,24 @@ class DetailViewController: UIViewController {
     navigationController?.navigationBar.backgroundColor = .clear
   }
   
+  func fetchDetail() {
+//    https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=0bc0b44455920f6f519ea6cf9094f2c4&language=en-US
+    let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
+    let request =     AF.request("https://api.themoviedb.org/3/movie/\(String(describing: detailId))/credits?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
+    request.responseDecodable(of: Detail.self) { (response) in
+      guard let result = response.value else { return }
+      print(result)
+      
+      DispatchQueue.main.async {
+        self.collectionView.reloadData()
+      }
+    
+    
+  }
   
   
+  
+}
 }
 
 

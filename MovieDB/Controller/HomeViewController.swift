@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   //  var movies: String?
   var urlBackdropPath = [[MovieModel]]()
-  var selectedItem: Movies?
+  var selectedItem: Int?
 //
 //  var simpleDataSource: [[String]] = [
 //    ["image1", "image2"],
@@ -67,6 +67,7 @@ class HomeViewController: UIViewController {
       guard let result = response.value else { return }
       
       self.urlBackdropPath.append([result])
+//      print(self.urlBackdropPath[0][0].results[0].id)
       DispatchQueue.main.async {
         self.collectionView.reloadData()
       }
@@ -263,7 +264,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row]
+    let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row].id
     selectedItem = movie
    //      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
        performSegue(withIdentifier: "toDetail", sender: self)
@@ -279,7 +280,7 @@ extension HomeViewController: UICollectionViewDelegate {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toDetail" {
       let detailVC = segue.destination as! DetailViewController
-      detailVC.stringToimage = selectedItem!
+      detailVC.detailId = selectedItem!
     }
   }
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
