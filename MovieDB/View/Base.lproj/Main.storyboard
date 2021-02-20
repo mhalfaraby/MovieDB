@@ -193,13 +193,13 @@
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="castCell" id="r73-Yb-fEi" customClass="MoviesCollectionViewCell" customModule="MovieDB" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="4" width="198" height="202"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Idj-Ds-F8w">
                                                             <rect key="frame" x="0.0" y="0.0" width="198" height="202"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="EUs-0C-Kzn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="90"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUs-0C-Kzn">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="136"/>
                                                                     <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="90" id="O9W-yi-0nX"/>
@@ -212,8 +212,11 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-kX-Sgg">
-                                                                    <rect key="frame" x="8" y="98" width="182" height="96"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="752" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-kX-Sgg">
+                                                                    <rect key="frame" x="8" y="144" width="182" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="JOx-a9-xoU"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -222,12 +225,12 @@
                                                             <constraints>
                                                                 <constraint firstItem="SZp-kX-Sgg" firstAttribute="leading" secondItem="Idj-Ds-F8w" secondAttribute="leading" constant="8" id="6Cv-QG-o5E"/>
                                                                 <constraint firstItem="EUs-0C-Kzn" firstAttribute="top" secondItem="Idj-Ds-F8w" secondAttribute="top" id="M1D-EL-e8c"/>
-                                                                <constraint firstItem="SZp-kX-Sgg" firstAttribute="top" secondItem="EUs-0C-Kzn" secondAttribute="bottom" constant="8" id="cpM-yb-ffe"/>
                                                                 <constraint firstAttribute="trailing" secondItem="SZp-kX-Sgg" secondAttribute="trailing" constant="8" id="dLc-xQ-cj1"/>
                                                                 <constraint firstAttribute="trailing" secondItem="EUs-0C-Kzn" secondAttribute="trailing" id="j3n-wC-nBv"/>
                                                                 <constraint firstItem="EUs-0C-Kzn" firstAttribute="centerX" secondItem="Idj-Ds-F8w" secondAttribute="centerX" id="mYr-Dw-6dQ"/>
                                                                 <constraint firstItem="EUs-0C-Kzn" firstAttribute="leading" secondItem="Idj-Ds-F8w" secondAttribute="leading" id="q87-LP-MdR"/>
                                                                 <constraint firstAttribute="bottom" secondItem="SZp-kX-Sgg" secondAttribute="bottom" constant="8" id="sfs-or-Vbd"/>
+                                                                <constraint firstItem="SZp-kX-Sgg" firstAttribute="top" secondItem="EUs-0C-Kzn" secondAttribute="bottom" constant="8" id="zqd-6e-QNA"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="198" height="202"/>
