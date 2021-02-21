@@ -298,6 +298,7 @@
                         <outlet property="genre2" destination="g2e-Dd-tDS" id="dMm-Bt-Zj3"/>
                         <outlet property="genre3" destination="e3S-A2-rTd" id="HtH-DB-Qc9"/>
                         <outlet property="imagePoster" destination="cpm-ua-Y9A" id="V05-U3-Gax"/>
+                        <outlet property="runtime" destination="zGf-QR-v0R" id="sG7-y7-cid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gr-GD-wK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
