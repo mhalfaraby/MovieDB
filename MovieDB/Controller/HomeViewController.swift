@@ -49,8 +49,8 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController!.navigationBar.isTranslucent = false
-
-    navigationController?.navigationBar.backgroundColor = .black
+//
+//    navigationController?.navigationBar.backgroundColor = .black
     
   }
   
