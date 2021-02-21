@@ -23,8 +23,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PY-Sf-wfm" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1630.3333333333333"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cpm-ua-Y9A">
-                                                <rect key="frame" x="0.0" y="1.6666666666666856" width="428" height="560"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cpm-ua-Y9A">
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="563"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="563" id="Q48-7A-Gdo"/>
                                                 </constraints>
@@ -160,9 +160,9 @@
                                                     <constraint firstItem="cc0-MR-Jlh" firstAttribute="leading" secondItem="v8B-qa-1VO" secondAttribute="leading" constant="8" id="wda-Z6-CG1"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL2-FK-gXN">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL2-FK-gXN">
                                                 <rect key="frame" x="8" y="563" width="412" height="801.33333333333348"/>
-                                                <color key="backgroundColor" red="0.1176470518" green="0.1294117719" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.090196087960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <string key="text">"The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.""The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard."</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -177,9 +177,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-W3-lhh">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-W3-lhh">
                                                 <rect key="frame" x="0.0" y="1400.3333333333333" width="428" height="210"/>
-                                                <color key="backgroundColor" red="0.1176470518" green="0.1294117719" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.090196087960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="210" id="6K5-KG-yXo"/>
                                                 </constraints>
@@ -246,7 +246,7 @@
                                                 </connections>
                                             </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.1176470518" green="0.1294117719" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.090196087960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="jXE-qq-4Aq" firstAttribute="top" secondItem="iL2-FK-gXN" secondAttribute="bottom" constant="15" id="2Ma-il-9Ls"/>
                                             <constraint firstAttribute="bottom" secondItem="Bwz-W3-lhh" secondAttribute="bottom" constant="20" id="8Xo-a6-YOG"/>
@@ -267,6 +267,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.090196087960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="9PY-Sf-wfm" firstAttribute="top" secondItem="Chj-Bk-BP1" secondAttribute="top" id="2t7-49-hNv"/>
                                     <constraint firstItem="9PY-Sf-wfm" firstAttribute="width" secondItem="Chj-Bk-BP1" secondAttribute="width" id="Qgr-bM-WQg"/>
@@ -279,7 +280,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tuZ-st-w0M"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.090196087960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Chj-Bk-BP1" secondAttribute="bottom" id="6fS-eg-PQb"/>
                             <constraint firstItem="Chj-Bk-BP1" firstAttribute="trailing" secondItem="tuZ-st-w0M" secondAttribute="trailing" id="TcK-rs-4yl"/>
@@ -293,6 +294,9 @@
                         <outlet property="collectionView" destination="Bwz-W3-lhh" id="Ohw-u6-C5y"/>
                         <outlet property="detailOverview" destination="iL2-FK-gXN" id="MK9-g4-IXX"/>
                         <outlet property="detailTitle" destination="A3S-1l-mcT" id="NNU-j1-ajA"/>
+                        <outlet property="genre1" destination="o2z-qF-8oG" id="Xjq-ja-ZyB"/>
+                        <outlet property="genre2" destination="g2e-Dd-tDS" id="dMm-Bt-Zj3"/>
+                        <outlet property="genre3" destination="e3S-A2-rTd" id="HtH-DB-Qc9"/>
                         <outlet property="imagePoster" destination="cpm-ua-Y9A" id="V05-U3-Gax"/>
                     </connections>
                 </viewController>
@@ -533,7 +537,6 @@
         <image name="Movie" width="78" height="23"/>
         <image name="bell" width="18" height="18"/>
         <image name="grid" width="28" height="28"/>
-        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,6 +11,9 @@ import Alamofire
 
 class DetailViewController: UIViewController {
   
+  @IBOutlet weak var genre1: UILabel!
+  @IBOutlet weak var genre2: UILabel!
+  @IBOutlet weak var genre3: UILabel!
   @IBOutlet weak var detailTitle: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var imagePoster: UIImageView!
@@ -20,21 +23,14 @@ class DetailViewController: UIViewController {
   var detail: Detail?
   var detailCast:[Cast] = []
   var countCast = [String]()
+  var genre = [String?]()
   
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
   
-    
-  
-    //
-    //
-    //
-    //    }
-    //    fetchDetail()
-    print(detailId!)
-    fetchDetail()
+    fetchDetail(id: detailId!)
     fetchCast(id: detailId!)
     
     
@@ -42,27 +38,7 @@ class DetailViewController: UIViewController {
     
     collectionView.reloadData()
 
-    
-//    if let name = detail?.poster_path {
-//      let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
-//      let urlToImage = NSURL.init(string: url)
-//      imagePoster.af.setImage(withURL: urlToImage! as URL)
-//    }
-    
-    //    imagePoster.af.setImage(withURL: urlToImage! as URL)
-    
-    
-    //    print(stringToimage?.backdrop_path)
-    //    if let url = "https://image.tmdb.org/t/p/w500//\(name)" {
-    //          let urlToImage = NSURL.init(string: url)
-    //
-    //    }
-    
-    //
-    //
-    //      imagePoster.af.setImage(withURL: urlToImage! as URL)
-    
-    
+   
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -76,12 +52,11 @@ class DetailViewController: UIViewController {
     navigationController?.navigationBar.backgroundColor = .clear
   }
   
-  func fetchDetail() {
+  func fetchDetail(id: Int) {
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
     let request =     AF.request("https://api.themoviedb.org/3/movie/\(detailId!),?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
     request.responseDecodable(of: Detail.self) { (response) in
       guard let result = response.value else { return }
-      
       let name = result.poster_path
        let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
       let urlToImage = NSURL.init(string: url)
@@ -90,14 +65,56 @@ class DetailViewController: UIViewController {
       self.detailTitle.text = result.title
       self.detailOverview.text = result.overview
       
-          
       
+      self.genre.append(contentsOf: result.genres.map{$0.name})
+      
+        self.genre1.text = self.genre[0]
+      
+      let intendedIndex: Int = 1
+
+      if (intendedIndex >= 0 && self.genre.count > intendedIndex) {
+          // This line will not throw index out of range:
+        let genre2 = self.genre[intendedIndex]
+        
+        self.genre2.text = genre2
+      } else {
+        self.genre3.text = ""
+      }
+      
+      
+      
+      
+      let intendedIndex2: Int = 2
+
+      if (intendedIndex >= 0 && self.genre.count > intendedIndex2) {
+          // This line will not throw index out of range:
+        let genre3 = self.genre[intendedIndex2]
+        
+        self.genre3.text = genre3
+      } else {
+        self.genre3.text = ""
+      }
+      
+      
+    
+
+//
+//          self.genre2.text = self.genre[i+1]
+//          self.genre3.text = self.genre[i+2]
+      
+      
+     
+
+        
+      }
+      
+
+
       
       
     }
-    //
-    //
-  }
+
+  
   
   func fetchCast(id: Int) {
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
@@ -105,55 +122,32 @@ class DetailViewController: UIViewController {
     request.responseDecodable(of: Cast.self) { (response) in
       guard let result = response.value else { return }
       
-//      print(result)
-      
-      
-      self.detailCast = [result]
-      
-      result.cast.forEach { (Casts) in
-        
-     
-        
-        
-        
-        if let cast = Casts.profile_path {
+ self.detailCast = [result]
+result.cast.forEach { (Casts) in
+ if let cast = Casts.profile_path {
           self.countCast.append(cast)
         }
-        
-       
       }
-    
-//      print(self.countCast)
-
-      
       DispatchQueue.main.async {
-        
         self.collectionView.reloadData()
-
       }
-  
-    
-  }
-    
   }
   
-  
-  
-  
+      
+    
+    
+    
+    
+  }
+
 }
 
 
 
 extension DetailViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    
-   
-//    return countCast.count
-    
+
     return countCast.count
-
-    
-
 
   }
   
@@ -175,19 +169,6 @@ extension DetailViewController: UICollectionViewDataSource {
     
     cell.castName.text = detailCast[0].cast[indexPath.row].name
 
-//    print(url)
-    
-   
-   
-    
-//     guard let urlToImage = NSURL.init(string: url),
-//         imagePoster.af.setImage(withURL: urlToImage as URL)
-//    else {
-//      self.imagePoster.image = UIImage(systemName: "person")
-//    }
-    
-    
-//
     
     return cell
   }
