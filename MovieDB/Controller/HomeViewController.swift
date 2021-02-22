@@ -13,18 +13,11 @@ import AlamofireImage
 class HomeViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
-  //  var movies: String?
   var urlBackdropPath = [[MovieModel]]()
   var selectedItem: Int?
-//
-//  var simpleDataSource: [[String]] = [
-//    ["image1", "image2"],
-//    ["image3", "image4"],
-//    ["image5", "image6"]
-//  ]
+  
   
   let headerId = "headerId"
-  let arrImages = ["image1", "image2", "image3", "image4", "image5", "image6"]
   let categoryHeaderId = "categoryHeaderId"
   
   override func viewDidLoad() {
@@ -41,23 +34,17 @@ class HomeViewController: UIViewController {
     
     
     collectionView.collectionViewLayout = createCompositionalLayout()
-
+    
     
   }
- 
+  
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController!.navigationBar.isTranslucent = false
-//
-//    navigationController?.navigationBar.backgroundColor = .black
     
   }
   
-  
-
-  
-
   func fetchBanner() {
     
     
@@ -67,7 +54,6 @@ class HomeViewController: UIViewController {
       guard let result = response.value else { return }
       
       self.urlBackdropPath.append([result])
-//      print(self.urlBackdropPath[0][0].results[0].id)
       DispatchQueue.main.async {
         self.collectionView.reloadData()
       }
@@ -85,7 +71,7 @@ class HomeViewController: UIViewController {
         self.collectionView.reloadData()
       }
       
-     
+      
       
     }
   }
@@ -95,14 +81,9 @@ class HomeViewController: UIViewController {
     request.responseDecodable(of: MovieModel.self) { (response) in
       guard let result = response.value else { return }
       self.urlBackdropPath.append([result])
-      //      print(self.urlBackdropPath)
       DispatchQueue.main.async {
         self.collectionView.reloadData()
       }
-//      DispatchQueue.main.async {
-//      }
-      
-//      print(self.urlBackdropPath[0][0].results.count)
       
     }
   }
@@ -115,8 +96,7 @@ class HomeViewController: UIViewController {
       case 0: return self.firstLayoutSection()
       case 1: return self.secondLayoutSection()
       default: return self.thirdLayoutSection()
-      //          case 2: return self.thirdLayoutSection()
-      //          default: return self.fourthLayoutSection()
+        
       }
     }
   }
@@ -156,7 +136,7 @@ class HomeViewController: UIViewController {
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets.leading = 15
     section.contentInsets.top = 15
-
+    
     section.orthogonalScrollingBehavior = .continuous
     
     section.boundarySupplementaryItems = [
@@ -199,12 +179,10 @@ extension HomeViewController: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     
     return urlBackdropPath.count
-    //    return simpleDataSource.count
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //    return urlBackdropPath.count
-//    return urlBackdropPath[section][0].results.count
+    
     
     switch section {
     case 0: return urlBackdropPath[section][0].results.count
@@ -214,8 +192,6 @@ extension HomeViewController: UICollectionViewDataSource {
       return urlBackdropPath[section][0].results.count
     }
     
-    //    return urlBackdropPath[section].count
-    //    return simpleDataSource[section].count
     
   }
   
@@ -223,28 +199,25 @@ extension HomeViewController: UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumItemCell.reuseIdentifer, for: indexPath) as! AlbumItemCell
     
-   
+    
     
     
     switch indexPath.section {
     case 0:
       let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].backdrop_path
-          let url = "https://image.tmdb.org/t/p/w500//\(name)"
+      let url = "https://image.tmdb.org/t/p/w500//\(name)"
       
       cell.configure(withImageName: url)
       
     case 1:
       let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-          let url = "https://image.tmdb.org/t/p/w500//\(name)"
+      let url = "https://image.tmdb.org/t/p/w500//\(name)"
       
       cell.configure(withImageName: url)
-//    case 2:  let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-//      let url = "https://image.tmdb.org/t/p/w500//\(name)"
-//
-//  cell.configure(withImageName: url)
+      
     default:
       let name = urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-          let url = "https://image.tmdb.org/t/p/w500//\(name)"
+      let url = "https://image.tmdb.org/t/p/w500//\(name)"
       
       cell.configure(withImageName: url)
     }
@@ -266,16 +239,11 @@ extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row].id
     selectedItem = movie
-   //      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-       performSegue(withIdentifier: "toDetail", sender: self)
-   
-//           print("tapped \(movie)")
+    
+    performSegue(withIdentifier: "toDetail", sender: self)
+    
   }
-//
-//   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//    selectedItem = urlBackdropPath[indexPath.section][0].results[indexPath.row]
-//    performSegue(withIdentifier: "toDetail", sender: self)
-//    return indexPath }
+  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toDetail" {
@@ -283,21 +251,7 @@ extension HomeViewController: UICollectionViewDelegate {
       detailVC.detailId = selectedItem!
     }
   }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//      let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row]
-//
-////      urlBackdropPath[indexPath.section][0].results[indexPath.row].poster_path
-//    performSegue(withIdentifier: "toDetail", sender: self)
-//
-//        print("tapped \(movie)")
-//    }
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "toDetail" {
-//      let detailVC = segue.destination as! DetailViewController
-//      detailVC.detailMovies = urlBackdropPath[indexPath.section][0].results[indexPath.row]
-//
-//    }
-//  }
+  
 }
 
 
