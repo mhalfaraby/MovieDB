@@ -428,7 +428,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="183" height="274"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <size key="customSize" width="183" height="274"/>
                                             </collectionViewCell>
                                         </cells>

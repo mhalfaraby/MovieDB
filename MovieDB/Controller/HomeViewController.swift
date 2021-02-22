@@ -54,9 +54,7 @@ class HomeViewController: UIViewController {
       guard let result = response.value else { return }
       
       self.urlBackdropPath.append([result])
-      DispatchQueue.main.async {
-        self.collectionView.reloadData()
-      }
+      
       
     }
   }
@@ -67,9 +65,7 @@ class HomeViewController: UIViewController {
       guard let result = response.value else { return }
       self.urlBackdropPath.append([result])
       
-      DispatchQueue.main.async {
-        self.collectionView.reloadData()
-      }
+    
       
       
       
@@ -220,6 +216,7 @@ extension HomeViewController: UICollectionViewDataSource {
       let url = "https://image.tmdb.org/t/p/w500//\(name)"
       
       cell.configure(withImageName: url)
+     
     }
     
     
