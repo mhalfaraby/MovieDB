@@ -11,7 +11,8 @@ import AlamofireImage
 
 class PopularViewController: UIViewController {
 
-  
+  var selectedItem: Int?
+
   @IBOutlet weak var collectionView: UICollectionView!
   
   @IBOutlet weak var searchTextField: UITextField!
@@ -37,6 +38,11 @@ class PopularViewController: UIViewController {
     collectionView.delegate = self
     if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
         layout.sectionHeadersPinToVisibleBounds = true
+      
+      navigationController?.isNavigationBarHidden = true
+
+      
+      
     }
     fetchPopular()
     
@@ -73,7 +79,7 @@ extension PopularViewController: UICollectionViewDataSource{
     let name = popularArray[indexPath.row].poster_path
     let url = "https://image.tmdb.org/t/p/w500/\(name)"
     let popTitle = popularArray[indexPath.row].title
-    
+//    let popCast = popularArray[indexPath.row].
     cell.configure(withImageName: url, title: popTitle)
 //
 //    cell.popImage.image = UIImage(named: "image1")
@@ -127,6 +133,26 @@ extension PopularViewController: UISearchBarDelegate {
     
     
   }
+}
+
+extension PopularViewController: UICollectionViewDelegate {
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let movie = popularArray[indexPath.row].id
+    selectedItem = movie
+    
+    performSegue(withIdentifier: "toDetail", sender: self)
+    
+  }
+  
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toDetail" {
+      let detailVC = segue.destination as! DetailViewController
+      detailVC.detailId = selectedItem!
+    }
+  }
+  
 }
 
 

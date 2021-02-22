@@ -11,7 +11,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
   
 let popImage = UIImageView()
 let popTitle = UILabel()
-let popCast = UILabel()
+//let popCast = UILabel()
 
   override init(frame: CGRect) {
       
@@ -20,7 +20,7 @@ let popCast = UILabel()
 //        featuredPhotoView.layer.cornerRadius = 10
     popImage.layer.masksToBounds = true
     popTitle.layer.masksToBounds = true
-    popCast.layer.masksToBounds = true
+//    popCast.layer.masksToBounds = true
     
 
     
@@ -35,11 +35,11 @@ let popCast = UILabel()
       
     popImage.translatesAutoresizingMaskIntoConstraints = false
     popTitle.translatesAutoresizingMaskIntoConstraints = false
-    popCast.translatesAutoresizingMaskIntoConstraints = false
+//    popCast.translatesAutoresizingMaskIntoConstraints = false
 
       contentView.addSubview(popImage)
     contentView.addSubview(popTitle)
-    contentView.addSubview(popCast)
+//    contentView.addSubview(popCast)
 
       NSLayoutConstraint.activate([
         popImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -48,10 +48,11 @@ let popCast = UILabel()
         popImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75),
         popTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
         popTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        popTitle.topAnchor.constraint(equalTo: popImage.bottomAnchor),
-        popCast.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-        popCast.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        popCast.topAnchor.constraint(equalTo: popTitle.bottomAnchor),
+        popTitle.topAnchor.constraint(equalTo: popImage.bottomAnchor, constant: 15),
+
+//        popCast.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//        popCast.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+//        popCast.topAnchor.constraint(equalTo: popTitle.bottomAnchor),
         
       ])
 //    let urlToImage = NSURL.init(string: name)
@@ -61,8 +62,8 @@ let popCast = UILabel()
     popImage.af.setImage(withURL: urlToImage! as URL)
         
     popTitle.text = title
-    popCast.text = "tes"
+//    popCast.text = "tes"
     popTitle.textColor = .white
-    popCast.textColor = .white
+//    popCast.textColor = .white
   }
 }
