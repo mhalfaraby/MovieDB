@@ -394,35 +394,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AH3-6c-GfW">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IEy-6I-cfJ">
-                                        <rect key="frame" x="8" y="63" width="374" height="34"/>
-                                        <color key="backgroundColor" red="0.12549020350000001" green="0.1294117719" blue="0.13725490870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3oW-ct-FBQ">
-                                        <rect key="frame" x="0.0" y="107" width="390" height="654"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3oW-ct-FBQ">
+                                        <rect key="frame" x="0.0" y="-6" width="390" height="723"/>
                                         <color key="backgroundColor" red="0.14509806040000001" green="0.15294116739999999" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="bwV-P4-qcb">
                                             <size key="itemSize" width="183" height="274"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="headerReferenceSize" width="50" height="50"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="popCell" id="YSl-qD-PeL" customClass="PopularCollectionViewCell" customModule="MovieDB" customModuleProvider="target">
-                                                <rect key="frame" x="103.66666666666667" y="10" width="183" height="274"/>
+                                                <rect key="frame" x="103.66666666666667" y="60" width="183" height="274"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7YJ-Jp-ggU">
                                                     <rect key="frame" x="0.0" y="0.0" width="183" height="274"/>
@@ -431,26 +416,53 @@
                                                 <size key="customSize" width="183" height="274"/>
                                             </collectionViewCell>
                                         </cells>
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="popSearch" id="vXg-A5-9YW" customClass="PopularCollectionReusableView" customModule="MovieDB" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="2jb-nM-AY6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                                                    <color key="backgroundColor" red="0.12549020350000001" green="0.1294117719" blue="0.13725490870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="barTintColor" red="0.12549020350000001" green="0.1294117719" blue="0.13725490870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="CP0-22-y8d" id="miW-pk-Soe"/>
+                                                    </connections>
+                                                </searchBar>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2jb-nM-AY6" secondAttribute="bottom" id="AcX-UQ-40Z"/>
+                                                <constraint firstItem="2jb-nM-AY6" firstAttribute="top" secondItem="vXg-A5-9YW" secondAttribute="top" id="BeW-sR-xkI"/>
+                                                <constraint firstItem="2jb-nM-AY6" firstAttribute="leading" secondItem="vXg-A5-9YW" secondAttribute="leading" id="avo-iE-3RH"/>
+                                                <constraint firstAttribute="trailing" secondItem="2jb-nM-AY6" secondAttribute="trailing" id="jzF-R0-hJd"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="popSearch" destination="2jb-nM-AY6" id="UXT-fm-EaH"/>
+                                            </connections>
+                                        </collectionReusableView>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12549020350000001" green="0.1294117719" blue="0.13725490870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="3oW-ct-FBQ" firstAttribute="leading" secondItem="AH3-6c-GfW" secondAttribute="leading" id="6Di-m7-zZS"/>
-                                    <constraint firstItem="3oW-ct-FBQ" firstAttribute="top" secondItem="IEy-6I-cfJ" secondAttribute="bottom" constant="10" id="KJL-TD-imG"/>
                                     <constraint firstAttribute="trailing" secondItem="3oW-ct-FBQ" secondAttribute="trailing" id="bD7-6f-DOD"/>
                                     <constraint firstAttribute="bottom" secondItem="3oW-ct-FBQ" secondAttribute="bottom" id="kyc-dJ-fus"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CZH-Zp-r1D"/>
+                        <color key="backgroundColor" red="0.12549020350000001" green="0.1294117719" blue="0.13725490870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="IEy-6I-cfJ" firstAttribute="leading" secondItem="CZH-Zp-r1D" secondAttribute="leading" constant="8" id="5zI-Ok-hUL"/>
                             <constraint firstAttribute="bottom" secondItem="AH3-6c-GfW" secondAttribute="bottom" id="9wf-jK-mol"/>
                             <constraint firstItem="AH3-6c-GfW" firstAttribute="trailing" secondItem="CZH-Zp-r1D" secondAttribute="trailing" id="AdU-I1-cgr"/>
                             <constraint firstItem="AH3-6c-GfW" firstAttribute="leading" secondItem="CZH-Zp-r1D" secondAttribute="leading" id="FIs-V8-Urv"/>
-                            <constraint firstItem="CZH-Zp-r1D" firstAttribute="trailing" secondItem="IEy-6I-cfJ" secondAttribute="trailing" constant="8" id="FQf-aX-YRP"/>
-                            <constraint firstItem="IEy-6I-cfJ" firstAttribute="top" secondItem="CZH-Zp-r1D" secondAttribute="top" constant="19" id="Xls-U4-eBN"/>
-                            <constraint firstItem="AH3-6c-GfW" firstAttribute="top" secondItem="syh-hA-FjM" secondAttribute="top" id="d8n-N0-VZ4"/>
+                            <constraint firstItem="CZH-Zp-r1D" firstAttribute="top" secondItem="AH3-6c-GfW" secondAttribute="top" id="G1f-rH-aV6"/>
+                            <constraint firstItem="CZH-Zp-r1D" firstAttribute="top" secondItem="3oW-ct-FBQ" secondAttribute="top" constant="6" id="rOf-4e-iZX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="2 Menu" id="wUW-RA-6Ph">
@@ -461,7 +473,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="3oW-ct-FBQ" id="haR-ph-dMs"/>
-                        <outlet property="searchTextField" destination="IEy-6I-cfJ" id="a8Q-l5-BR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDt-eq-GWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

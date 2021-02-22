@@ -19,6 +19,8 @@ class PopularViewController: UIViewController {
   let defaults = UserDefaults.standard
   
   var popularArray = [Movies]()
+  var realPopularArray = [Movies]()
+
   
   override func viewDidLoad() {
             super.viewDidLoad()
@@ -26,14 +28,16 @@ class PopularViewController: UIViewController {
     let image = UIImage(systemName: "magnifyingglass")?.withTintColor(.yellow, renderingMode: .alwaysOriginal)
     image?.withTintColor(.white)
     imageView.image = image
-    searchTextField.rightView = imageView
-    searchTextField.rightViewMode = UITextField.ViewMode.always
-
-    searchTextField.rightViewMode = .always
+//    searchTextField.rightView = imageView
+//    searchTextField.rightViewMode = UITextField.ViewMode.always
+//
+//    searchTextField.rightViewMode = .always
 
     collectionView.dataSource = self
     collectionView.delegate = self
-    
+    if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        layout.sectionHeadersPinToVisibleBounds = true
+    }
     fetchPopular()
     
     
@@ -45,6 +49,7 @@ class PopularViewController: UIViewController {
     request.responseDecodable(of: MovieModel.self) { (response) in
       guard let result = response.value else { return }
       self.popularArray = result.results
+      self.realPopularArray = result.results
 //      self.popularArrayCount = result
 //      print(result.results.count)
       DispatchQueue.main.async {
@@ -76,7 +81,17 @@ extension PopularViewController: UICollectionViewDataSource{
 //    cell.castPop.text = "obrina, kayak , will"
 //as! PopularCollectionViewCell
     
+    
+    
+    
+    
     return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "popSearch", for: indexPath)
+    
+    return searchView
   }
   
   
@@ -91,6 +106,27 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
 
            return CGSize(width: size, height: size1)
       }
+}
+
+extension PopularViewController: UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    popularArray.removeAll()
+    
+    for item in realPopularArray {
+      if (item.title.contains(searchBar.text!)) {
+        popularArray.append(item)
+      }
+    }
+    
+    if (searchBar.text!.isEmpty) {
+      popularArray = realPopularArray
+    }
+    
+    collectionView.reloadData()
+    
+    
+    
+  }
 }
 
 
