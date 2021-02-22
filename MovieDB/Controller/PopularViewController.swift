@@ -39,7 +39,6 @@ class PopularViewController: UIViewController {
     if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
         layout.sectionHeadersPinToVisibleBounds = true
       
-      navigationController?.isNavigationBarHidden = true
 
       
       
@@ -48,6 +47,15 @@ class PopularViewController: UIViewController {
     
     
         }
+  override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      navigationController?.setNavigationBarHidden(false, animated: animated)
+  }
   
   func fetchPopular () {
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
