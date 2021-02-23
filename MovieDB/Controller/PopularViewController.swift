@@ -10,17 +10,19 @@ import Alamofire
 import AlamofireImage
 
 class PopularViewController: UIViewController {
+  
+  
 
   var selectedItem: Int?
 
   @IBOutlet weak var collectionView: UICollectionView!
   
-  @IBOutlet weak var searchTextField: UITextField!
   
   let defaults = UserDefaults.standard
   
   var popularArray = [Movies]()
   var realPopularArray = [Movies]()
+  
 
   
   override func viewDidLoad() {
@@ -39,7 +41,6 @@ class PopularViewController: UIViewController {
     if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
         layout.sectionHeadersPinToVisibleBounds = true
       
-
       
       
     }
@@ -55,6 +56,11 @@ class PopularViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
       navigationController?.setNavigationBarHidden(false, animated: animated)
+
+    
+  }
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+      return .lightContent
   }
   
   func fetchPopular () {
@@ -71,9 +77,8 @@ class PopularViewController: UIViewController {
       }
     }
   }
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-      return .lightContent
-  }
+ 
+ 
 
     }
 

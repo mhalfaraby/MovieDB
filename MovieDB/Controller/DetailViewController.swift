@@ -8,7 +8,9 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-
+protocol AddToFavorite {
+  func passingData (data: Detail)
+}
 class DetailViewController: UIViewController {
   
   @IBOutlet weak var genre1: UILabel!
@@ -26,6 +28,11 @@ class DetailViewController: UIViewController {
   var countCast = [String]()
   var genre = [String?]()
   
+
+  var delegate:AddToFavorite?
+
+  
+  
   
   
   override func viewDidLoad() {
@@ -42,6 +49,8 @@ class DetailViewController: UIViewController {
     
   }
   
+  
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //    self.navigationItem.setHidesBackButton(true, animated: true)
@@ -51,13 +60,46 @@ class DetailViewController: UIViewController {
     self.navigationController!.navigationBar.isTranslucent = true
     navigationController?.navigationBar.tintColor = .yellow
     navigationController?.navigationBar.backgroundColor = .clear
+  
+  }
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+      return .lightContent
   }
   
+  @IBAction func addToFavorite(_ sender: Any?) {
+    
+    if let button : UIButton = sender as? UIButton
+       {
+      button.isSelected = !button.isSelected
+
+           if (button.isSelected)
+           {
+            button.backgroundColor = .systemYellow
+            button.setTitle("Remove from Favorite", for: .selected)
+            button.setTitleColor(.black, for: .selected)
+
+            
+           }
+           else 
+           {
+            button.backgroundColor = .clear
+
+            button.setTitle("Add to Favorite", for: .selected)
+
+           }
+       }
+  }
+  
+ 
   func fetchDetail(id: Int) {
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
     let request =     AF.request("https://api.themoviedb.org/3/movie/\(detailId!),?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
     request.responseDecodable(of: Detail.self) { (response) in
       guard let result = response.value else { return }
+      
+      self.delegate?.passingData(data: result)
+      print(result)
+      
       let name = result.poster_path
       let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
       let urlToImage = NSURL.init(string: url)
