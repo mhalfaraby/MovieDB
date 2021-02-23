@@ -22,19 +22,25 @@ class FavoriteViewController: UIViewController {
   
   override func viewDidLoad() {
      super.viewDidLoad()
-
+    cetak()
  }
+  
+  func cetak() {
+    print(favorite.favoriteDetail)
+  }
   
  
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    
+    cetak()
+
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    cetak()
 
 
   }
