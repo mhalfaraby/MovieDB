@@ -9,10 +9,9 @@ import UIKit
 
 
 
-class FavoriteViewController: UIViewController,AddToFavorite {
- 
+class FavoriteViewController: UIViewController {
   
-
+  
   @IBOutlet weak var searchTable: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
   var tableData = ["One","Two","Three","Twenty-One"]
@@ -20,41 +19,32 @@ class FavoriteViewController: UIViewController,AddToFavorite {
 
   var filteredTableData = [String]()
   var favorite = DetailViewController()
-  var detailData = [Detail]()
   
   override func viewDidLoad() {
      super.viewDidLoad()
 
-    favorite.delegate = self
-   
-          
-    print(realTableData)
-
-     // Reload the table
  }
-  func passingData(data: Detail) {
-    detailData = [data]
-    
-    
-    DispatchQueue.main.async {
-      self.tableView.reloadData()
-      print(self.detailData)
-
-    }
-    
-
-  }
+  
+ 
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
-    print(detailData)
-    
+
     
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+
+
+  }
+  
+  
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
       return .lightContent
   }
+
 
   
 }
@@ -116,5 +106,7 @@ extension FavoriteViewController: UISearchBarDelegate {
     
   }
 }
+
+
 
  

@@ -8,11 +8,10 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-protocol AddToFavorite {
-  func passingData (data: Detail)
-}
+
 class DetailViewController: UIViewController {
-  
+
+
   @IBOutlet weak var genre1: UILabel!
   @IBOutlet weak var genre2: UILabel!
   @IBOutlet weak var genre3: UILabel!
@@ -28,12 +27,10 @@ class DetailViewController: UIViewController {
   var countCast = [String]()
   var genre = [String?]()
   
-
-  var delegate:AddToFavorite?
-
   
+  var favoriteDetail:[Detail] = []
   
-  
+ 
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,11 +40,11 @@ class DetailViewController: UIViewController {
     
     
     
-    
     collectionView.reloadData()
-    
+ 
     
   }
+  
   
   
   
@@ -60,25 +57,23 @@ class DetailViewController: UIViewController {
     self.navigationController!.navigationBar.isTranslucent = true
     navigationController?.navigationBar.tintColor = .yellow
     navigationController?.navigationBar.backgroundColor = .clear
-  
   }
   override var preferredStatusBarStyle: UIStatusBarStyle {
       return .lightContent
   }
+ 
   
   @IBAction func addToFavorite(_ sender: Any?) {
-    
+
     if let button : UIButton = sender as? UIButton
        {
       button.isSelected = !button.isSelected
-
+            
            if (button.isSelected)
            {
             button.backgroundColor = .systemYellow
             button.setTitle("Remove from Favorite", for: .selected)
             button.setTitleColor(.black, for: .selected)
-
-            
            }
            else 
            {
@@ -90,18 +85,23 @@ class DetailViewController: UIViewController {
        }
   }
   
+  
+  
+ 
  
   func fetchDetail(id: Int) {
     let apiKey = "0bc0b44455920f6f519ea6cf9094f2c4"
     let request =     AF.request("https://api.themoviedb.org/3/movie/\(detailId!),?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
     request.responseDecodable(of: Detail.self) { (response) in
       guard let result = response.value else { return }
+
+
       
-      self.delegate?.passingData(data: result)
-      print(result)
       
       let name = result.poster_path
       let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
+      
+      
       let urlToImage = NSURL.init(string: url)
       self.imagePoster.af.setImage(withURL: urlToImage! as URL)
       
@@ -140,7 +140,7 @@ class DetailViewController: UIViewController {
 
     }
     
-    
+
     
     
     
