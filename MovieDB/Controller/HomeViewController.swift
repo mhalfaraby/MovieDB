@@ -11,16 +11,29 @@ import AlamofireImage
 
 
 class HomeViewController: UIViewController {
-  
+  let defaults = UserDefaults.standard
+
   @IBOutlet weak var collectionView: UICollectionView!
   var urlBackdropPath = [[MovieModel]]()
   var selectedItem: Int?
-  
+  var favoriteDetail: Detail?
+
   
   let headerId = "headerId"
   let categoryHeaderId = "categoryHeaderId"
   
   override func viewDidLoad() {
+    
+//    if let savedMovie = defaults.array(forKey: "SavedMovie") as? Data {
+//        let decoder = JSONDecoder()
+//        if let loadedMovie = try? decoder.decode(Detail.self, from: savedMovie) {
+//          print(savedMovie)
+//        }
+//    }
+    print(defaults.array(forKey: "image"))
+    
+   
+    
     fetchBanner()
     
     fetchPopular()
@@ -241,6 +254,7 @@ extension HomeViewController: UICollectionViewDelegate {
     let movie = urlBackdropPath[indexPath.section][0].results[indexPath.row].id
     selectedItem = movie
     
+  
     performSegue(withIdentifier: "toDetail", sender: self)
     
   }
@@ -250,6 +264,17 @@ extension HomeViewController: UICollectionViewDelegate {
     if segue.identifier == "toDetail" {
       let detailVC = segue.destination as! DetailViewController
       detailVC.detailId = selectedItem!
+      
+      
+//      if let selected = selectedItem  {
+//        if selected == defaults.integer(forKey: selectedTitle) {
+//        detailVC.buttons.isSelected = true
+//        detailVC.buttons.backgroundColor = .systemYellow
+//        detailVC.buttons.setTitle("Remove from Favorite", for: .selected)
+//        detailVC.buttons.setTitleColor(.black, for: .selected)
+//        }
+//      }
+      
     }
   }
   

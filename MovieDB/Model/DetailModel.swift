@@ -7,26 +7,27 @@
 
 import Foundation
 
-struct Detail: Decodable {
+struct Detail: Codable {
   let title: String
   let runtime: Int
   let genres: [Genres]
   let overview: String
   let poster_path: String
+  let backdrop_path: String
 //  let cast: [Casts]
   
 }
 
-struct Genres: Decodable {
+struct Genres: Codable {
   let name: String
 }
 
 
-struct Cast:Decodable {
+struct Cast:Codable {
   let cast: [Casts]
 }
 
-struct Casts: Decodable {
+struct Casts: Codable {
   let name: String?
   let profile_path: String?
 }

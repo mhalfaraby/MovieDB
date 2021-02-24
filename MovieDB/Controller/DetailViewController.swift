@@ -11,6 +11,8 @@ import Alamofire
 
 class DetailViewController: UIViewController {
 
+  let defaults = UserDefaults.standard
+  let encoder = JSONEncoder()
 
   @IBOutlet weak var genre1: UILabel!
   @IBOutlet weak var genre2: UILabel!
@@ -26,9 +28,9 @@ class DetailViewController: UIViewController {
   var detailCast:[Cast] = []
   var countCast = [String]()
   var genre = [String?]()
+  @IBOutlet weak var buttons: UIButton!
   
-  
-  var favoriteDetail:[String] = []
+  var favoriteDetail: Detail?
   
  
   
@@ -41,7 +43,7 @@ class DetailViewController: UIViewController {
     
     
     collectionView.reloadData()
- 
+
     
   }
   
@@ -57,7 +59,24 @@ class DetailViewController: UIViewController {
     self.navigationController!.navigationBar.isTranslucent = true
     navigationController?.navigationBar.tintColor = .yellow
     navigationController?.navigationBar.backgroundColor = .clear
+   
+    
+    
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if detailId == defaults.integer(forKey: favoriteDetail!.title) {
+    
+        buttons.isSelected = true
+       buttons.backgroundColor = .systemYellow
+      buttons.setTitle("Remove from Favorite", for: .selected)
+       buttons.setTitleColor(.black, for: .selected)
+    }
+
+  }
+  
+  
   override var preferredStatusBarStyle: UIStatusBarStyle {
       return .lightContent
   }
@@ -68,9 +87,13 @@ class DetailViewController: UIViewController {
   // setelah itu fetch di favorite?
   //
   @IBAction func addToFavorite(_ sender: Any?) {
-
+    
+   
     if let button : UIButton = sender as? UIButton
        {
+      
+      
+      
       button.isSelected = !button.isSelected
             
            if (button.isSelected)
@@ -78,14 +101,90 @@ class DetailViewController: UIViewController {
             button.backgroundColor = .systemYellow
             button.setTitle("Remove from Favorite", for: .selected)
             button.setTitleColor(.black, for: .selected)
+            
+//                        var currentArray = defaults.array(forKey: "SavedMovie") as? [Int] ?? []
+//                        currentArray.append(detailId!)
+//            defaults.set([detailId], forKey: "SavedMovie")
+            var currentArray:[Int] = defaults.array(forKey: "SavedMovie")as? [Int] ?? []
+            var image:[String] = defaults.array(forKey: "image")as? [String] ?? []
+            var title:[String] = defaults.array(forKey: "title")as? [String] ?? []
+
+//
+            currentArray.append(detailId!)
+            image.append(favoriteDetail!.backdrop_path)
+            title.append(favoriteDetail!.title)
+
+
+//            print(currentArray)
+
+            defaults.set(currentArray, forKey: "SavedMovie")
+            defaults.set(image, forKey: "image")
+            defaults.set(title, forKey: "title")
+
+
+//            print(defaults.array(forKey: "SavedMovie") as Any)
+
+            defaults.set(detailId, forKey: favoriteDetail!.title)
+
+            
+//            var array: [Any]?
+//
+//            let encoder = JSONEncoder()
+//            if let encoded = try? encoder.encode(favoriteDetail) {
+//                let defaults = UserDefaults.standard
+//              array?.append(encoded)
+//                defaults.set(array, forKey: "SavedMovie")
+//            }
+            
+//            let defaults = UserDefaults.standard
+//
+//            // Your new score:
+//
+//            let newScore = 75
+//
+//            // Get your current scores list from User Defaults:
+//
+//            var currentArray = defaults.array(forKey: "Scores") as? [Int] ?? []
+//
+//            // Append your new score to the current array:
+//
+//            let updatedArray = currentArray.append(newScore)
+//
+//            // And save your updated array to User Defaults:
+//
+//            defaults.set(updatedArray, forKey: "Scores")
+//
+//            // In this example, your User Defaults now contains the updated array [25, 50, 75
+            
+            
+            
+            
+            
            }
            else 
            {
             button.backgroundColor = .clear
 
             button.setTitle("Add to Favorite", for: .selected)
+            
+            defaults.removeObject(forKey: favoriteDetail!.title)
+            
+            
+            let currentArray:[Int] = defaults.array(forKey: "SavedMovie")as? [Int] ?? []
+            let removed = currentArray.filter{$0 != detailId}
+            
+            let currentImage:[String] = defaults.array(forKey: "image")as? [String] ?? []
+            let removedImage = currentImage.filter{$0 != favoriteDetail?.backdrop_path}
 
+            defaults.removeObject(forKey: "SavedMovie")
+            defaults.set(removed, forKey: "SavedMovie")
+            
+            defaults.removeObject(forKey: "image")
+            defaults.set(removedImage, forKey: "image")
+
+            
            }
+    
        }
   }
   
@@ -99,27 +198,21 @@ class DetailViewController: UIViewController {
     request.responseDecodable(of: Detail.self) { (response) in
       guard let result = response.value else { return }
       
-      
+      self.favoriteDetail = result
+//      print(self.favoriteDetail!.title)
+//      print(self.favoriteDetail)
 
-      self.favoriteDetail.append(contentsOf: [result.title])
-      
-      for i in 0...result.genres.count-1 {
-        self.favoriteDetail.append(contentsOf: [result.genres[i].name])
-
-      }
       
 
       
       
       let name = result.poster_path
       let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
-      print(url)
       
       let urlToImage = NSURL.init(string: url)
       self.imagePoster.af.setImage(withURL: urlToImage! as URL)
 //      self.favoriteDetail.append(contentsOf: [url])
 
-      print(self.favoriteDetail)
 
       
       self.detailTitle.text = result.title
