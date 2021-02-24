@@ -54,7 +54,9 @@ class HomeViewController: UIViewController {
       guard let result = response.value else { return }
       
       self.urlBackdropPath.append([result])
-      
+      DispatchQueue.main.async {
+        self.collectionView.reloadData()
+      }
       
     }
   }
@@ -67,7 +69,9 @@ class HomeViewController: UIViewController {
       
     
       
-      
+      DispatchQueue.main.async {
+        self.collectionView.reloadData()
+      }
       
     }
   }

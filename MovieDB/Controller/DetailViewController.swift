@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
   var genre = [String?]()
   
   
-  var favoriteDetail:[Detail] = []
+  var favoriteDetail:[String] = []
   
  
   
@@ -62,7 +62,11 @@ class DetailViewController: UIViewController {
       return .lightContent
   }
  
-  
+  // ketika di add save id
+  // create array berdasarkan id nya
+  // tambah ke tableview
+  // setelah itu fetch di favorite?
+  //
   @IBAction func addToFavorite(_ sender: Any?) {
 
     if let button : UIButton = sender as? UIButton
@@ -94,16 +98,29 @@ class DetailViewController: UIViewController {
     let request =     AF.request("https://api.themoviedb.org/3/movie/\(detailId!),?api_key=\(apiKey)&language=en-US").validate(statusCode: 200...500)
     request.responseDecodable(of: Detail.self) { (response) in
       guard let result = response.value else { return }
+      
+      
 
+      self.favoriteDetail.append(contentsOf: [result.title])
+      
+      for i in 0...result.genres.count-1 {
+        self.favoriteDetail.append(contentsOf: [result.genres[i].name])
+
+      }
+      
 
       
       
       let name = result.poster_path
       let url = "https://image.tmdb.org/t/p/w500//\(String(describing: name))"
-      
+      print(url)
       
       let urlToImage = NSURL.init(string: url)
       self.imagePoster.af.setImage(withURL: urlToImage! as URL)
+//      self.favoriteDetail.append(contentsOf: [url])
+
+      print(self.favoriteDetail)
+
       
       self.detailTitle.text = result.title
       self.detailOverview.text = result.overview
